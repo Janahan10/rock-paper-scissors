@@ -1,0 +1,17 @@
+
+.header {
+    text-align: center;
+    border: solid 2px yellow;
+    margin: 2rem 2rem;
+}
+
+.container { 
+    border: solid 2px green;
+    margin: 2rem 0;
+    width: auto;
+}
+
+.score-card {
+    text-align: center;
+    border: solid 2px lime;
+}
