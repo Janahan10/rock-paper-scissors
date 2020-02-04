@@ -1,17 +1,45 @@
-
-.header {
-    text-align: center;
-    border: solid 2px yellow;
-    margin: 2rem 2rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
 }
 
-.container { 
-    border: solid 2px green;
-    margin: 2rem 0;
-    width: auto;
+body {
+    background-color: rgb(17, 82, 139) !important;
+}
+.header {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.result {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: solid 2px black;
+    border-top: solid 2px black;
+    margin: 0 2rem;
 }
 
 .score-card {
     text-align: center;
-    border: solid 2px lime;
+    padding: 2rem 5rem;
+}
+
+.options {
+    text-align: center;
+    
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.options > h2 {
+    padding: 2rem;
+}
+
+img { 
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
 }
