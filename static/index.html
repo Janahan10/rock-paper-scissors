@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="/static/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="/socket.io/socket.io.js"></script>
     </head>
 
     <body>
@@ -18,10 +19,10 @@
                     <h2>User 1</h2>
                 </div>
                 <div class="col-3">
-                    <h2 class="user1-score">0</h2>
+                    <h2 class="user1-score" id='u1score'>0</h2>
                 </div>
                 <div class="col-3">
-                    <h2 class="user2-score">0</h2>
+                    <h2 class="user2-score" id='u2score'>0</h2>
                 </div>
                 <div class="col">
                     <h2>User 2</h2>
@@ -29,30 +30,32 @@
             </div>
         </div>
         <div class="result">
-            <h2>Paper Covers Rock. You Win!</h2>
+            <h2 id='result'>Let the match begin!</h2>
         </div>
 
         <div class="options">
             <div class="container">
-                <h2 id="move-message">Make Your Move</h2>
+                <h2>Make Your Move</h2>
                 <div class="row">
                     <div class="col">
                         <div class="option" id="rock">
-                            <img src="static\img\rock.png" alt="Rock">
+                            <button><img src="static\img\rock.png" id='rock'alt="Rock"></button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="option" id="paper">
-                            <img src="static\img\paper.png" alt="Paper">
+                            <button><img src="static\img\paper.png" id='paper'alt="Paper"></button>
                         </div>
                     </div>
                     <div class="col">
                         <div class="option" id="scissors">
-                            <img src="static\img\scissors.png" alt="Scissors">
+                            <button><img src="static\img\scissors.png" id='scissors' alt="Scissors"></button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <button type='button' id='playAgain'>Play Again</button>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

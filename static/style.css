@@ -11,7 +11,7 @@ body {
 .header {
     text-align: center;
     margin-top: 2rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .result {
@@ -19,7 +19,7 @@ body {
     padding: 1rem;
     border-bottom: solid 2px black;
     border-top: solid 2px black;
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 
 .score-card {
@@ -41,5 +41,17 @@ body {
 img { 
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    
+}
+
+button {
+    color: yellow
+}
+
+#playAgain {
+    color: black;
+    border: none;
+    font-size: 20px;
+    margin-top: 0.5rem;
+    padding: 1.5rem;
 }

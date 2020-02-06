@@ -1,63 +1,48 @@
 var socket = io();
 socket.on('message', function(data) {
-  console.log(data);
+  console.log('hi');
 });
 
-var movement = {
-    up: false,
-    down: false,
-    left: false,
-    right: false
-  }
-  document.addEventListener('keydown', function(event) {
-    switch (event.keyCode) {
-      case 65: // A
-        movement.left = true;
-        break;
-      case 87: // W
-        movement.up = true;
-        break;
-      case 68: // D
-        movement.right = true;
-        break;
-      case 83: // S
-        movement.down = true;
-        break;
-    }
-  });
-  document.addEventListener('keyup', function(event) {
-    switch (event.keyCode) {
-      case 65: // A
-        movement.left = false;
-        break;
-      case 87: // W
-        movement.up = false;
-        break;
-      case 68: // D
-        movement.right = false;
-        break;
-      case 83: // S
-        movement.down = false;
-        break;
-    }
-  });
+var player1Score = 0;
+var player2Score = 0;
 
-  socket.emit('new player');
-setInterval(function() {
-  socket.emit('movement', movement);
-}, 1000 / 60);
-
-var canvas = document.getElementById('canvas');
-canvas.width = 800;
-canvas.height = 600;
-var context = canvas.getContext('2d');
-socket.on('state', function(players) {
-  context.clearRect(0, 0, 800, 600);
-  context.fillStyle = 'green';
-  for (var id in players) {
-    var player = players[id];
-    context.beginPath();
-    context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
-    context.fill();
-  }
+document.getElementById('rock').addEventListener('click', function(event) {
+  socket.emit('sendChoice', 'rock');
 });
+
+document.getElementById('paper').addEventListener('click', function(event) {
+  socket.emit('sendChoice', 'paper');
+});
+
+document.getElementById('scissors').addEventListener('click', function(event) {
+  socket.emit('sendChoice', 'scissors');
+});
+
+socket.on('choiceConfirmed', function() {
+  socket.emit('play');
+});
+
+document.getElementById('playAgain').addEventListener('click', function(event) {
+  socket.emit('playAgain');
+  document.getElementById('result').innerHTML = 'New Round';
+});
+
+socket.on('Players Tie', function(data) {
+  document.getElementById('result').innerHTML = data;
+});
+
+socket.on('Players 1', function(data) {
+  document.getElementById('result').innerHTML = data;
+  document.getElementById('u1score').innerHTML = ++player1Score;
+  console.log(player1Score);
+});
+
+socket.on('Players 2', function(data) {
+  document.getElementById('result').innerHTML = data;
+  document.getElementById('u2score').innerHTML = ++player2Score;
+});
+
+socket.on('newGame', function() {
+  document.getElementById('result').innerHTML = 'New Round';
+});
+
