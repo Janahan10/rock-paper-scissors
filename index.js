@@ -21,6 +21,7 @@ var players = {};
 // Add the WebSocket handler
 // Server identifies whether user leaves or joins
 io.on('connection', function(socket) {
+
   socket.on("connect", function(){ 
     console.log("user connected");
   });
